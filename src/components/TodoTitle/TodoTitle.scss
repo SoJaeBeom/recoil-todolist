@@ -1,0 +1,12 @@
+.TodoTitle {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 10px;
+
+  &-Icon {
+      margin-right: 8px;
+  }
+}
