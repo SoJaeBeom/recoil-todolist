@@ -6,6 +6,10 @@ import './TodoInput.scss';
 
 const TodoInput = (): JSX.Element => {
   const [contents, setContents] = useRecoilState<string>(inputState);
+
+  // useRecoilValue = get 변수
+  // useSetRecoilState = setter 지정
+  // get과 setter를 분리하여 사용하는 방법도 있다.
   const todos = useRecoilValue<ITodoTypes[]>(todosState);
   const setTodos = useSetRecoilState<ITodoTypes[]>(todosState);
 
