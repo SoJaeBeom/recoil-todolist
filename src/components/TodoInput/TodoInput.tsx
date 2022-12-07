@@ -25,7 +25,6 @@ const TodoInput = (): JSX.Element => {
       contents,
       isCompleted: false,
     };
-    console.log(todos);
     setTodos([...todos, todo]);
     setContents('');
   }, [contents, setContents, setTodos, todos]);

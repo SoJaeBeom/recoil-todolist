@@ -1,11 +1,16 @@
 import { useCallback } from 'react';
-import { useRecoilState } from 'recoil';
-import { ITodoTypes, todosState } from '../../recoil/todo';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import {
+  filteredTodoListState,
+  ITodoTypes,
+  todosState,
+} from '../../recoil/todo';
 import TodoItem from './TodoItem';
 import './TodoList.scss';
 
 const TodoList = (): JSX.Element => {
   const [todos, setTodos] = useRecoilState<ITodoTypes[]>(todosState);
+  const todoList = useRecoilValue<ITodoTypes[]>(filteredTodoListState);
 
   const onComplete = useCallback(
     (id: number): void => {
@@ -29,8 +34,8 @@ const TodoList = (): JSX.Element => {
 
   return (
     <div className='TodoList'>
-      {todos.length > 0 ? (
-        todos.map((todo: ITodoTypes) => {
+      {todoList.length > 0 ? (
+        todoList.map((todo: ITodoTypes) => {
           const { id, contents, isCompleted } = todo;
           return (
             <TodoItem
